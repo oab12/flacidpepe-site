@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flaccid Pepe Gaming</title>
+    <style>
+        body { text-align: center; font-family: 'Arial', sans-serif; }
+        .hidden { display: none; }
+        img { max-width: 80%; height: auto; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome fellow gamers</h1>
+    <button onclick="showPage('page1')">Continue</button>
+
+    <div id="page1" class="hidden">
+        <img src="images/first_image.jpg" alt="First Image">
+        <br>
+        <button onclick="showPage('page2')">Goon?</button>
+    </div>
+
+    <div id="page2" class="hidden">
+        <img src="images/second_image.jpg" alt="Second Image">
+        <br>
+        <button onclick="showPage('history')">Continue</button>
+    </div>
+
+    <div id="history" class="hidden">
+        <h2>Why we choose flaccid?</h2>
+        <p>The ancient Greeks famously fetishized the male body in sculptures...</p>
+        <img src="images/greek1.jpg" alt="Greek Art 1">
+        <img src="images/greek2.jpg" alt="Greek Art 2">
+        <img src="images/greek3.jpg" alt="Greek Art 3">
+        <br>
+        <button onclick="showPage('credits')">Continue</button>
+    </div>
+
+    <div id="credits" class="hidden">
+        <h2>Payment Processing</h2>
+        <form onsubmit="processPayment(event)">
+            <input type="text" placeholder="Card Number"><br>
+            <input type="text" placeholder="Expiration Date"><br>
+            <input type="text" placeholder="CVV"><br>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="payment-message" class="hidden"></p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll("div").forEach(div => div.classList.add("hidden"));
+            document.getElementById(pageId).classList.remove("hidden");
+        }
+
+        function processPayment(event) {
+            event.preventDefault();
+            let message = document.getElementById("payment-message");
+            message.innerHTML = "Analysing... Processing... Scamming...<br>Thank you! $1,000,000 worth of Robux have been transferred from your account to Flacid Pepe. Pleasure doing business with you. Have a nice day! (Non-refundable)";
+            message.classList.remove("hidden");
+        }
+    </script>
+
+</body>
+</html>
