@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flaccid Pepe Gaming</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; text-align: center; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: 50px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        button { background-color: red; color: white; padding: 10px 20px; border: none; font-size: 18px; cursor: pointer; }
+        .hidden { display: none; }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+
+    <div id="welcomePage" class="container">
+        <h1>Welcome Fellow Gamers</h1>
+        <button onclick="showHistory()">Continue</button>
+    </div>
+
+    <div id="historyPage" class="container hidden">
+        <h1>Why We Choose Flaccid?</h1>
+        <p>The ancient Greeks famously fetishized the male body in sculptures...</p>
+        <img src="greek1.JPG" alt="Greek Statue 1">
+        <img src="greek2.JPG" alt="Greek Statue 2">
+        <img src="greek3.JPG" alt="Greek Statue 3">
+        <button onclick="showFeetPage1()">Continue</button>
+    </div>
+
+    <div id="feetPage1" class="container hidden">
+        <img src="first_image.JPG" alt="First Feet Image">
+        <button onclick="showFeetPage2()">Goon?</button>
+    </div>
+
+    <div id="feetPage2" class="container hidden">
+        <img src="second_image.JPEG" alt="Second Feet Image">
+        <button onclick="showCreditPage()">Finish</button>
+    </div>
+
+    <div id="creditPage" class="container hidden">
+        <h1>Enter Your Credit Card Details</h1>
+        <input type="text" placeholder="Card Number"><br><br>
+        <input type="text" placeholder="Expiration Date"><br><br>
+        <input type="text" placeholder="CVV"><br><br>
+        <button onclick="scamUser()">Submit</button>
+        <p id="scamMessage" class="hidden">Analyzing...</p>
+    </div>
+
+    <script>
+        function showHistory() {
+            document.getElementById('welcomePage').classList.add('hidden');
+            document.getElementById('historyPage').classList.remove('hidden');
+        }
+
+        function showFeetPage1() {
+            document.getElementById('historyPage').classList.add('hidden');
+            document.getElementById('feetPage1').classList.remove('hidden');
+        }
+
+        function showFeetPage2() {
+            document.getElementById('feetPage1').classList.add('hidden');
+            document.getElementById('feetPage2').classList.remove('hidden');
+        }
+
+        function showCreditPage() {
+            document.getElementById('feetPage2').classList.add('hidden');
+            document.getElementById('creditPage').classList.remove('hidden');
+        }
+
+        function scamUser() {
+            let message = document.getElementById('scamMessage');
+            message.classList.remove('hidden');
+            message.innerHTML = "Processing...";
+            setTimeout(() => { message.innerHTML = "Scamming..."; }, 2000);
+            setTimeout(() => { message.innerHTML = "Thank you! $1,000,000 worth of Robux have been transferred from your account to FlaccidPepe. Pleasure doing business with you. Have a nice day :^) (Non-refundable)"; }, 4000);
+        }
+    </script>
+
+</body>
+</html>
